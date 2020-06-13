@@ -1,1 +1,2 @@
-# covid_co_operation_infra
+# COVID CO-OPERATION HACKATHON INFRA
+Terraform HCL code to build serverless application for Hackathon
