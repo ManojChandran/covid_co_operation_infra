@@ -12,7 +12,17 @@ provider "aws" {
   region = var.aws-region
 }
 
+#----create cognito user pool------------
+module "aws-cognito" {
+  source = "./modules/cognito"
+}
+
+#----create api gateway------------
+module "aws-api-gateway" {
+  source = "./modules/apigateway"
+}
+
 #----create dynamodb table------------
-module "dynamodb" {
+module "aws-dynamodb" {
   source = "./modules/dynamodb"
 }
