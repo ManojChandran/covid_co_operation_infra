@@ -1,7 +1,7 @@
 # COVID CO-OPERATION HACKATHON INFRA
 Terraform HCL code to build serverless application for Hackathon
 
-![severless architecture](./images/Serverless_ Application_ Architecture.png?raw=true "Optional Title")
+![Severless Architecture](./images/Serverless_ Application_ Architecture.jpg?raw=true "Optional Title")
 
 # Environment Variables for HCL
 By default, the HCL detects AWS credentials set in your environment and uses them to sign requests to AWS. That way you don't need to manage credentials in your applications. The HCL looks for credentials in the following environment variables:
