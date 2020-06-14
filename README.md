@@ -9,23 +9,25 @@ AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY /AWS_SESSION_TOKEN (optional)
 The following examples show how you configure the environment variables.
 
 Linux, OS X, or Unix
-
+```
 $ export AWS_ACCESS_KEY_ID=YOUR_AKID
 $ export AWS_SECRET_ACCESS_KEY=YOUR_SECRET_KEY
 $ export AWS_SESSION_TOKEN=TOKEN
 $ export AWS_REGION=us-east-1
-
+```
 Windows
-
+```
 C:> set AWS_ACCESS_KEY_ID=YOUR_AKID
 C:> set AWS_SECRET_ACCESS_KEY=YOUR_SECRET_KEY
 C:> set AWS_SESSION_TOKEN=TOKEN
 C:> set AWS_REGION=us-east-1
-
+```
 # Run TERRAFORM 
 Commands to run the terraform HCL code
 
-$ terraform --version
-$ terraform init
-$ terraform plan
-$ terraform apply
+```
+$ terraform --version </br>
+$ terraform init </br>
+$ terraform plan </br>
+$ terraform apply </br>
+```
