@@ -14,5 +14,5 @@ provider "aws" {
 
 #----create dynamodb table------------
 module "dynamodb" {
-  source = "./dynamodb"
+  source = "./modules/dynamodb"
 }
