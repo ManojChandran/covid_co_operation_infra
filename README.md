@@ -26,8 +26,8 @@ C:> set AWS_REGION=us-east-1
 Commands to run the terraform HCL code
 
 ```
-$ terraform --version </br>
-$ terraform init </br>
-$ terraform plan </br>
-$ terraform apply </br>
+$ terraform --version 
+$ terraform init
+$ terraform plan
+$ terraform apply
 ```
