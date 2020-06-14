@@ -31,3 +31,8 @@ $ terraform init
 $ terraform plan
 $ terraform apply
 ```
+
+# Provider
+```
+provider.aws: version = "~> 2.66"
+```
