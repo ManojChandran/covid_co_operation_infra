@@ -1,25 +1,35 @@
 #-------------dynamodb/main.tf------------
+# TLDR;
+# If you store your dates / timestamps as ISO 8601 format, you should use String.
+# If you store your dates / timestamps in Epoch format, you should use Number.
+#--------------------------------------------------------------------------------
 
 resource "aws_dynamodb_table" "basic-dynamodb-table" {
-  name           = "GameScores1"
+  name           = "trackerDB"
   billing_mode   = "PROVISIONED"
   read_capacity  = 20
   write_capacity = 20
-  hash_key       = "UserId"
-  range_key      = "GameTitle"
+  hash_key       = "userphonenumber"
+  range_key      = "userenrolltime"
 
   attribute {
-    name = "UserId"
+    name = "userphonenumber"
+    type = "S"
+  }
+
+  # Epoch format
+  attribute {
+    name = "usercontacttimestmp"
+    type = "N"
+  }
+
+  attribute {
+    name = "userecategory"
     type = "S"
   }
 
   attribute {
-    name = "GameTitle"
-    type = "S"
-  }
-
-  attribute {
-    name = "TopScore"
+    name = "useremailid"
     type = "N"
   }
 
