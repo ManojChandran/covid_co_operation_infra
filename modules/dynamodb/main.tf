@@ -14,13 +14,18 @@ resource "aws_dynamodb_table" "basic-dynamodb-table" {
 
   attribute {
     name = "userphonenumber"
-    type = "S"
+    type = "N"
   }
 
   # Epoch format
   attribute {
-    name = "usercontacttimestmp"
+    name = "userscantimestmp"
     type = "N"
+  }
+
+  attribute {
+    name = "username"
+    type = "S"
   }
 
   attribute {
@@ -30,8 +35,23 @@ resource "aws_dynamodb_table" "basic-dynamodb-table" {
 
   attribute {
     name = "useremailid"
-    type = "N"
+    type = "S"
   }
+
+  attribute {
+    name = "fellowname"
+    type = "S"
+  }
+
+  attribute {
+    name = "fellowemailID"
+    type = "S"
+  }  
+
+  attribute {
+    name = "fellowphoneNo"
+    type = "S"
+  } 
 
   ttl {
     attribute_name = "TimeToExist"
