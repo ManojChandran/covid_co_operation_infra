@@ -4,17 +4,17 @@
 # If you store your dates / timestamps in Epoch format, you should use Number.
 #--------------------------------------------------------------------------------
 
-resource "aws_dynamodb_table" "basic-dynamodb-table" {
+resource "aws_dynamodb_table" "dynamodb-table" {
   name           = "trackerDB"
   billing_mode   = "PROVISIONED"
   read_capacity  = 20
   write_capacity = 20
-  hash_key       = "userphonenumber"
-  range_key      = "userenrolltime"
+  hash_key       = "useremailid"
+  range_key      = "userscantimestmp"
 
   attribute {
-    name = "userphonenumber"
-    type = "N"
+    name = "useremailid"
+    type = "S"
   }
 
   # Epoch format
@@ -23,53 +23,41 @@ resource "aws_dynamodb_table" "basic-dynamodb-table" {
     type = "N"
   }
 
-  attribute {
-    name = "username"
-    type = "S"
-  }
+#  ttl {
+#    attribute_name = "TimeToExist"
+#    enabled        = false
+#  }
 
-  attribute {
-    name = "userecategory"
-    type = "S"
-  }
-
-  attribute {
-    name = "useremailid"
-    type = "S"
-  }
-
-  attribute {
-    name = "fellowname"
-    type = "S"
-  }
-
-  attribute {
-    name = "fellowemailID"
-    type = "S"
-  }  
-
-  attribute {
-    name = "fellowphoneNo"
-    type = "S"
-  } 
-
-  ttl {
-    attribute_name = "TimeToExist"
-    enabled        = false
-  }
-
-  global_secondary_index {
-    name               = "GameTitleIndex"
-    hash_key           = "GameTitle"
-    range_key          = "TopScore"
-    write_capacity     = 10
-    read_capacity      = 10
-    projection_type    = "INCLUDE"
-    non_key_attributes = ["UserId"]
-  }
+#  global_secondary_index {
+#    name               = "GameTitleIndex"
+#    hash_key           = "GameTitle"
+#    range_key          = "TopScore"
+#    write_capacity     = 10
+#    read_capacity      = 10
+#    projection_type    = "INCLUDE"
+#    non_key_attributes = ["UserId"]
+#  }
 
   tags = {
-    Name        = "dynamodb-table-1"
-    Environment = "production"
+    "Name"    = "Covid-Hackathon"
+    "Project" = "Terraform"
   }
+}
+
+resource "aws_dynamodb_table_item" "example" {
+  table_name = aws_dynamodb_table.dynamodb-table.name
+  hash_key   = aws_dynamodb_table.dynamodb-table.hash_key
+  range_key  = aws_dynamodb_table.dynamodb-table.range_key
+
+  item = <<ITEM
+{
+  "useremailid": {"S": "manoj.c@gmail.com"},
+  "userscantimestmp": {"N": "1592449289"},
+  "userphnumber": {"N": "7675487767"},
+  "usercategory": {"S": "personal"},
+  "fellowphnumber": {"N": "8988778001"},
+  "fellowcategory": {"S": "personal"},
+  "fellowemailid": {"S": "manoj@gmail.com"}
+}
+ITEM
 }
