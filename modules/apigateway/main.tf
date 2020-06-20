@@ -1,7 +1,7 @@
 #------------apigateway/main.tf---------
 
-resource "aws_api_gateway_rest_api" "MyDemoAPI" {
-  name        = "MyDemoAPI"
+resource "aws_api_gateway_rest_api" "trakerAPI" {
+  name        = "trakerAPI"
   description = "This is my API for demonstration purposes"
 
   tags = {
@@ -11,8 +11,8 @@ resource "aws_api_gateway_rest_api" "MyDemoAPI" {
 
 }
 
-resource "aws_api_gateway_resource" "MyDemoResource" {
-  rest_api_id = "aws_api_gateway_rest_api.MyDemoAPI.id"
-  parent_id   = "aws_api_gateway_rest_api.MyDemoAPI.root_resource_id"
-  path_part   = "mydemoresource"
+resource "aws_api_gateway_resource" "trackerAPIResource" {
+  rest_api_id = aws_api_gateway_rest_api.trakerAPI.id
+  parent_id   = aws_api_gateway_rest_api.trakerAPI.root_resource_id
+  path_part   = "trackersource"
 }
