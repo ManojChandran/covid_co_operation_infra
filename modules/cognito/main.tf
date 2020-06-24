@@ -21,3 +21,23 @@ resource "aws_cognito_user_pool" "pool" {
     "Project" = "Terraform"
   }
 }
+
+resource "aws_iam_role" "cognito_role" {
+  name = "cognito_role"
+
+  assume_role_policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      
+    }
+  ]
+}
+EOF
+
+  tags = {
+    "Name"    = "Covid-Hackathon"
+    "Project" = "Terraform"
+  }
+}

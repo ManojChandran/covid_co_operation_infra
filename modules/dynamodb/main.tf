@@ -51,3 +51,23 @@ resource "aws_dynamodb_table_item" "example" {
 }
 ITEM
 }
+
+resource "aws_iam_role" "dynamodb_role" {
+  name = "dynamodb_role"
+
+  assume_role_policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      
+    }
+  ]
+}
+EOF
+
+  tags = {
+    "Name"    = "Covid-Hackathon"
+    "Project" = "Terraform"
+  }
+}
