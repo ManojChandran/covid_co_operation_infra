@@ -38,3 +38,6 @@ $ terraform apply
 ```
 provider.aws: version = "~> 2.66"
 ```
+
+# Reference
+Link 1 : https://www.gruntwork.io/devops-checklist/
